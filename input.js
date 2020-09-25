@@ -7,17 +7,31 @@ const handleUserInput = function(data) {
   }
 
   if(data === 'w') {
-    connection.write('Move: up')
+    connection.write('Move: up');
   }
   if(data === 'a') {
-    connection.write('Move: left')
+    connection.write('Move: left');
   }
   if(data === 's') {
-    connection.write('Move: down')
+    connection.write('Move: down');
   }
   if(data === 'd') {
-    connection.write('Move: right')
+    connection.write('Move: right');
   }
+  if(data === '1') {
+    connection.write('Say: hello');
+  }
+  if(data === '2') {
+    connection.write('Say: Well Played');
+  }
+  if(data === '3') {
+    connection.write('Say: Thank You');
+  }
+
+  if(data === '4') {
+    connection.write('Say: oops');
+  }
+
 
 };
 
