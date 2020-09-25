@@ -9,20 +9,20 @@ let directions = ['Move: up','Move: left','Move: left','Move: down','Move: left'
 const connection = connect(directions);
 
 
+const handleUserInput = function(data) {
+  if(data === '\u0003'){
+    process.exit();
+  }
+};
 
 const setUpInput = function(){
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
-  
+  stdin.resume();
 
   stdin.on('data',(data) => {
-    if(data === '\u0003'){
-      process.exit();
-    }
-    else {
-      stdin.resume();
-    }
+    handleUserInput(data)
   });
   return stdin;
 }
