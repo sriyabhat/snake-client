@@ -9,7 +9,7 @@ console.log('Connecting ...');
 let directions = ['Move: up','Move: left','Move: left','Move: down','Move: left'];
 
 const connection = connect(directions);
-setUpInput();
+setUpInput(connection);
 
 
 
