@@ -1,36 +1,32 @@
+const { controls , messages } = require('./constants');
+
+const messageKeys = Object.keys(messages);
+const controlKeys = Object.keys(controls);
+
 
 let connection;
+
 
 const handleUserInput = function(data) {
   if(data === '\u0003'){
     process.exit();
   }
 
-  if(data === 'w') {
-    connection.write('Move: up');
-  }
-  if(data === 'a') {
-    connection.write('Move: left');
-  }
-  if(data === 's') {
-    connection.write('Move: down');
-  }
-  if(data === 'd') {
-    connection.write('Move: right');
-  }
-  if(data === '1') {
-    connection.write('Say: hello');
-  }
-  if(data === '2') {
-    connection.write('Say: Well Played');
-  }
-  if(data === '3') {
-    connection.write('Say: Thank You');
+  for(var item of controlKeys){
+    if(data === controls[item]) {
+      connection.write(`Move: ${item}`);
+    }
   }
 
-  if(data === '4') {
-    connection.write('Say: oops');
+  
+
+  for(var item of messageKeys){
+    if(data === messages[item]) {
+      connection.write(`Say: ${item}`);
+    }
   }
+
+  
 
 
 };
